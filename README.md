@@ -1,3 +1,5 @@
+# [Brave Clojure](https://www.braveclojure.com/)
+
 # clojure-noob
 
 FIXME: description
