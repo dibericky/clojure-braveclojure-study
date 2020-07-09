@@ -1,3 +1,4 @@
+
 (ns clojure-noob.core
   (:gen-class))
 
@@ -167,5 +168,36 @@
 
 (def the-set
   (into #{} (map identity [:garlic-love :garlic-love])))
+
+(defn my-into
+  [target additions]
+  (apply conj target additions)) 
+
+(def add10 (partial + 10))
+
+(def add-missing-elements
+  (partial conj ["water" "earth" "air"]))
+
+(defn my-partial
+                     [partialized-fn & args]
+                     (fn [& more-args]
+                       (apply partialized-fn (into args more-args))))
+
+(defn lousy-logger
+      [log-level message]
+      (condp = log-level
+       :warn (clojure.string/lower-case message)
+       :emergency (clojure.string/upper-case message)))
+
+(defn is-true [value] (= value true))
+(def is-false (complement is-true))
+
+(is-false false)  ;-- true
+
+(defn my-complement
+  [fun]
+  (fn [& args]
+    (not (apply fun args))))
+
 ; --------
 
